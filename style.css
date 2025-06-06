@@ -1,0 +1,344 @@
+    body {
+      margin: 0;
+      background-color: pink;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+      position: relative;
+    }
+
+     .message {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #d0004d;
+      z-index: 20;
+      text-shadow: 1px 1px 3px white;
+    }
+    .heart-button-wrapper {
+      position: relative;
+      z-index: 10;
+    }
+
+    .heart-button {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: relative;
+      transform: rotate(-45deg);
+      border: none;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .heart-button::before,
+    .heart-button::after {
+      content: "";
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart-button::before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart-button::after {
+      top: 0;
+      left: 50px;
+    }
+
+    .floating-heart {
+      position: absolute;
+      bottom: -100px;
+      width: 80px;
+      height: 80px;
+      background-color: transparent;
+      animation: floatUp 5s linear forwards;
+      pointer-events: none;
+    }
+
+    .floating-heart {
+  position: absolute;
+  bottom: -150px;
+  width: 160px;
+  height: 160px;
+  background-color: transparent;
+  animation: floatUp 5s linear forwards;
+  pointer-events: none;
+}
+
+.floating-heart::before,
+.floating-heart::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 150px;
+  background: pink;
+  border-radius: 100px 100px 0 0;
+  top: 0;
+}
+
+.floating-heart::before {
+  left: 80px;
+  transform: rotate(-45deg);
+  transform-origin: left bottom;
+}
+
+.floating-heart::after {
+  left: -20px;
+  transform: rotate(45deg);
+  transform-origin: right bottom;
+}
+
+.floating-heart img {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+    /* Importação de Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap');
+
+/* Reset e Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+    background-color: #1a1a1a; /* Cor de fundo caso a imagem não carregue */
+    /* ATENÇÃO: Troque a URL abaixo pela URL da sua imagem de fundo */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.pexels.com/photos/1024989/pexels-photo-1024989.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito Parallax */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #f7b2c5; /* Cor rosa claro para títulos */
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+    padding-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #e6567a; /* Cor rosa forte para botões */
+    color: #ffffff;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #d14266;
+    transform: translateY(-3px);
+}
+
+/* Seções */
+section, footer {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-section .subtitle {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.hero-image {
+    max-width: 250px;
+    margin: 2rem 0;
+}
+
+/* Como Funciona */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.step-card {
+    padding: 2rem;
+}
+
+.step-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f7b2c5;
+    border: 2px solid #f7b2c5;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    line-height: 56px;
+    margin: 0 auto 1.5rem auto;
+}
+
+/* Pacotes */
+.packages-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.package-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2.5rem;
+    border-radius: 10px;
+    border: 1px solid #f7b2c5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.package-card.premium {
+    border-color: #e6567a;
+    border-width: 2px;
+}
+
+.package-card .price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.package-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 250px;
+    margin: 0 auto 2rem auto;
+}
+
+.package-card ul li {
+    margin-bottom: 0.8rem;
+}
+
+/* Demonstração */
+.video-placeholder {
+    width: 100%;
+    max-width: 600px;
+    height: 350px;
+    background-color: #000;
+    border: 2px dashed #f7b2c5;
+    border-radius: 10px;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    color: #ccc;
+}
+
+/* FAQ */
+#faq .container {
+    max-width: 800px;
+}
+
+.faq-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+.faq-item h3 {
+    color: #ffffff;
+}
+
+/* Footer */
+footer {
+    padding: 3rem 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+    h2 {
+        font-size: 2.2rem;
+    }
+    .packages-grid {
+        grid-template-columns: 1fr;
+    }
+    .container {
+        padding: 3rem 1rem;
+    }
+}
